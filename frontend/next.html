@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Task Management App</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel = "icon" type = "image/x-con" href = "tick.png">
+    <script src = "functions.js"></script>
+    <script src = "script.js"> </script>
+    <style>
+        .custom-jumbotron {
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        .searchByIdClass{
+            margin-bottom : 15px
+        }
+        #panel ul li::after{
+                	content:'';
+                	width:0%;
+                	height:2px;
+                	background:#f44336;
+                	display:block;
+                	margin:auto;
+                	transition:0.5s;
+                }
+                #panel ul li:hover::after{
+                	width:70%;
+                }
+                .buttonList {
+                    margin-top: 20px;
+                }
+
+                .row{
+                    margin-top: 16px;
+                }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="">Task Management App</a>
+
+    <div class="collapse navbar-collapse justify-content-end" id = "panel">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Add Tasks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#searchid">Search Task</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">About</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container mt-5">
+    <div class="jumbotron text-center custom-jumbotron">
+        <h1 class="display-4">Welcome to Task Management App</h1>
+        <p class="lead">Below are the list of tasks:</p>
+    </div>
+
+    <div class="searchByIdClass">
+        <form method="get" class="d-flex align-items-center" onsubmit="getTaskobjById()">
+
+            <input type="text" name="searchid" id="searchid" class="form-control mr-2" style="width: auto; max-width: 200px;" placeholder = "Enter Id to fetch data">
+            <button type="submit" class="btn btn-primary">Get Task</button>
+        </form>
+        <div class = "buttonList">
+            <button class="btn btn-primary" onclick="fetchByDate()"> Fetch by dates </button>
+            <button class="btn btn-primary" onclick="fetchByOverdue()"> Overdue tasks </button> 
+            <button class="btn btn-primary" onclick="fetchByStatusCompleted()"> Completed Tasks </button> 
+            <button class="btn btn-primary" onclick="fetchByStatusNotCompleted()"> Incomplete Tasks </button>
+            <button class="btn btn-primary" onclick="fetchDeletedTasks()"> Deleted Tasks </button> 
+        <div>
+    </div>
+</div>
+
+
+
+<div id="displayTasks" class="row"></div>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+

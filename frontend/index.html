@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Task Management app</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel = "icon" type = "image/x-con" href = "tick.png">
+    <style>
+        .custom-form-width {
+            max-width: 550px;
+            margin: 0 auto; 
+        }
+        .extraButton{
+            display: flex;
+
+        }
+        #alignButtons{
+            margin-top : 10px;
+        }
+        #alignButtons .col-9 {
+            padding-right: 1px;
+        }
+        #alignButtons .col-3{
+            padding-left:3px;
+        }
+        #panel ul li::after{
+        	content:'';
+        	width:0%;
+        	height:2px;
+        	background:#f44336;
+        	display:block;
+        	margin:auto;
+        	transition:0.5s;
+        }
+        #panel ul li:hover::after{
+        	width:70%;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="">Task Management App</a>
+    <div class="collapse navbar-collapse justify-content-end" id = "panel">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="next.html">Tasks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">About</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+     <h2 class="text-center">Enter Task Details</h2>
+
+     <form method = "post" class="border p-4 rounded bg-light custom-form-width" onsubmit="postTask()">
+         <div class="form-group">
+             <label for="id">Id</label>
+             <input type="text" class="form-control" id="id" name="id" placeholder = "Enter task Id here" required>
+         </div>
+
+         <div class="form-group">
+             <label for="username">Username</label>
+             <input type="text" class="form-control" id="username" name="username" placeholder = "Enter Username here" required>
+         </div>
+
+         <div class="form-group">
+             <label for="description">Description</label>
+             <input type="text" class="form-control" id="description" name="description" placeholder = "Enter Description here" required>
+         </div>
+
+         <div class="form-group">
+             <label for="date">Due date</label>
+             <input type="date" class="form-control" id="date" name="date" required>
+         </div>
+
+         <div class="form-group">
+             <label for="status">Status</label>
+             <input type="text" class="form-control" id="status" name="status" placeholder = "Completed/Not-Completed" required>
+         </div>
+
+         <button type="submit" class="btn btn-primary btn-block" >Add Task</button>
+
+         <div class="row" id = "alignButtons">
+             <div class="col-9">
+                 <button type="submit" class="btn btn-primary btn-block" onclick="updateFunction()">Update Task</button>
+             </div>
+             <div class="col-3">
+                 <button type="reset" class="btn btn-secondary btn-block">Reset</button>
+             </div>
+         </div>
+     </form>
+ </div>
+
+
+
+<script src="script.js"> </script>
+<script src="functions.js"></script>
+
+</body>
+</html>
